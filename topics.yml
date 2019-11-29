@@ -1,0 +1,180 @@
+---
+# This configuration file is used within a system that indexes text documents
+# by subject in a semi-supervised way for use in a corpus browsing tool.
+# To use it, first determine a set of broad topics relevant to your corpus,
+# and then hand-curate a few seed terms (words and multi-word compounds) for
+# each topic.  Specify the topics and seed terms in this file and then run
+# ./generate_topics_terms.py to generate an expanded set of topic terms.
+# The output of that script can then be used by downstream analysis scripts
+# to organize the corpus by topic, or make a topic-guided search interface.
+#
+# Each topic has the following configuration attributes:
+#
+#   id:  identifier for this topic
+#   display_name:  how the name of the topic should be displayed
+#   values:  List of terms in the hand-curated "seed set" for this topic
+#     Each term in this list is guaranteed to appear in the expanded set, plus
+#     any expansions.  (For expansions to be generated, this term must be in
+#     the vocabulary of the word2vec model used by ./generate_topics_terms.py)
+#   values_file:  If specified, get the list of values from a file instead
+#   softmatch_min_similarity_any:  (float) expand the set to include terms that have
+#     at least this cosine similarity (in a word2vec model) with any of the values
+#   softmatch_min_similarity_mean:  (float) Also include terms that have at least
+#     this mean-squared cosine similarity with all of the values
+#   max_to_add:  (int) for the softmatch options, add no more than this many new terms
+
+# The example configuration below was used for organizing the community-focused
+# conversations of the Local Voices Network.
+
+topics:
+
+- id: environment
+  display_name: Environment
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 200
+  values:
+  - sustainability
+  - environment
+  - climate change
+  - water quality
+  - disaster preparedness
+  - septic systems
+  - safety hazard
+  - hydrology
+
+- id: education
+  display_name: Education
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 200
+  values:
+  - special education
+  - education
+  - class size
+  - IEPs
+  - schools
+  - public schools
+  - school district
+
+- id: transportation
+  display_name: Transportation
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 200
+  values:
+  - bus routes
+  - green cab
+  - busses
+  - bus stop
+  - parking
+  - parking permit
+  - walking distance
+  - Lyft
+  - Uber
+
+- id: childcare
+  display_name: Childcare
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 50
+  values:
+  - childcare
+  - child care
+  - babysitting
+  - nursery school
+  - daycare
+  - kingergarten
+  - preschool
+  - tutoring
+  - special needs
+  - special ed
+  - pediatric
+  - special education
+  - early childhood
+  - montessori
+
+- id: crime
+  display_name: Crime
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 200
+  values:
+  - murder
+  - home invasion
+  - robbery
+  - assault
+
+- id: healthcare
+  display_name: Healthcare
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 100
+  values:
+  - health care
+  - health insurance
+  - hospital
+  - doctor
+  - nurse
+  - mental health
+
+- id: inclusivity
+  display_name: Inclusivity
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 100
+  values:
+  - accessibility
+  - diversity
+  - inclusivity
+  - equality
+  - inequality
+  - discrimination
+
+- id: housing
+  display_name: Housing
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 50
+  values:
+  - public housing
+  - displacement
+  - affordable housing
+  - gentrification
+  - rent control
+
+- id: social-issues
+  display_name: Social issues
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 500
+  values:
+  - gun control
+  - death penalty
+  - immigration
+  - abortion rights
+  - gay marriage
+  - opioid crisis
+
+- id: media
+  display_name: Media
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 200
+  values:
+  - television
+  - radio
+  - newspaper
+  - broadcast news
+
+- id: sports
+  display_name: Sports
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 1000
+  values:
+  - basketball
+  - football
+  - soccer
+  - lacrosse
+  - hockey
+  - tennis
+
+- id: economy
+  display_name: Economy
+  softmatch_min_similarity_mean: 0.2
+  max_to_add: 100  
+  values:
+  - jobs
+  - unemployment
+  - interest rates
+  - consumer price
