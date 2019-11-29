@@ -14,8 +14,11 @@
 #   display_name:  how the name of the topic should be displayed
 #   values:  List of terms in the hand-curated "seed set" for this topic
 #     Each term in this list is guaranteed to appear in the expanded set, plus
-#     any expansions.  (For expansions to be generated, this term must be in
-#     the vocabulary of the word2vec model used by ./generate_topics_terms.py)
+#     any expansions.  A term may be a single word or a multi-word collocation.
+#     (Note that for expansions to be generated, the term must be in
+#     the vocabulary of the word2vec model used by ./generate_topics_terms.py.
+#     See models/radiotalk_2019_w2v.vocab for the vocabulary of the RadioTalk model.
+#     Multi-word entries are delimited by underscores in the model.)
 #   values_file:  If specified, get the list of values from a file instead
 #   softmatch_min_similarity_any:  (float) expand the set to include terms that have
 #     at least this cosine similarity (in a word2vec model) with any of the values
