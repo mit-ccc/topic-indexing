@@ -21,7 +21,7 @@ if __name__ == "__main__":
                         default="./topics.yml")
     parser.add_argument("--word2vec_model",
                         help="path to word2vec_model for determing terms",
-                        default="./models/radiotalk_2019_w2v")
+                        default="./models/radiotalk_2020-04_w2v")
     parser.add_argument("--enforce_disjoint_terms", default=False,
                         action="store_true",
                         help="if set, allow a term to appear in at most one topic")

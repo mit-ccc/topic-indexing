@@ -115,6 +115,17 @@ topics:
   - nurse
   - mental health
 
+- id: covid-19
+  display_name: Covid 19
+  softmatch_min_similarity_mean: 0.1
+  max_to_add: 100
+  values:
+  - covid
+  - coronavirus
+  - corona virus
+  - pandemic
+  - respiratory illness
+
 - id: inclusivity
   display_name: Inclusivity
   softmatch_min_similarity_mean: 0.1

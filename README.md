@@ -9,9 +9,14 @@ set of seed terms.  Please see the configuration file `topics.yml` for more info
 
 This tool does not use the corpus that you intend to index, but it
 references a word embedding model that may be trained partly or entirely on the corpus.  
-The word2vec model in this repository is trained on 3 months of talk radio transcript data
-from the RadioTalk project (see https://github.com/social-machines/RadioTalk) and so it
-covers the topics of discussion in the news in United States communities.
+
+There are two word2vec models in the `models` directory of this repository.   Both are trained on
+ASR-transcribed talk radio programs that emphasize discussion of the news in United States communities.
+See the RadioTalk project (see https://github.com/social-machines/RadioTalk) for information
+on how the system was built.
+`radiotalk_2019` is trained on 3 months of transcripts (from October through December of 2018)
+`radiotalk_2020-04` is trained on a more recent sample of similar
+data (mid-February through mid-April of 2020), mixed with the data from `radiotalk_2019`.
 
 Run this program without any arguments to generate a JSON file containing the topic terms we
 use for indexing Local Voices Network conversations.
